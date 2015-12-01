@@ -1,0 +1,150 @@
+
+Python3  --  dict, file, set
+=============================
+
+In the commands below, brackets around arguments (e.g., (... [, d]) )
+indicate that these arguments are optional. The brackets are not part
+of the commad. 
+The arrow -> indicates the return value. 
+
+
+Dictionary functions, for a dictionary D (from  help(dict) ) 
+--------------------------------------------------------------
+
+D.clear() -> None.  Remove all items from D. (Same as  D = {} .)
+
+D.copy() -> "shallow" copy of D (deep through level 1) 
+
+D.get(k[,d])  -> D[k]   if k in D, else  -> d. 
+            No error if k absent (even when no  d  is given).  
+
+D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D . 
+     So, -> D[k] if k in D , 
+     otherwise, -> d  and make  D[k] = d .
+
+D.items() -> "set" of (key, value) pairs of D, as 2-tuples
+
+D.keys() -> "set" of keys of D  (use list(..), e.g.) 
+
+D.pop(k[,d]) -> v, remove specified key and return the corresponding 
+  value. If key is not found, d is returned if given, otherwise 
+  KeyError is raised.
+
+D.popitem() -> (k, v), remove and return some (key, value) pair as a
+      2-tuple; but raise KeyError if D is empty
+
+D.values() -> "set" of values in D  (use list(..), e.g.)
+
+dict() -> new empty dictionary.
+dict(seq) -> new dictionary initialized from a sequence  seq 
+  of (key,value)-pairs (pairs can be 2-tuples or 2-lists).
+
+del D[k]  -- delete D[k] from D.  (Error if k is not a key.)
+
+k in D  --  True if k is a key of D, False otherwise.
+
+D1.update(D2)  --  "appends" D2 to D1 with elimination of key repetitions 
+
+(+ and += are not defined)
+
+
+File functions ,  for a file object F
+---------------
+
+F = open(<filename>, mode) ,  
+    where mode is 'r' or 'w' or 'a' (with quotes)
+
+F = file(name[, mode[, buffering]]) -> file object
+ E.g.,  F = file('ff', 'r')  is equivalent to  F = open('ff', 'r')
+ This opens a file in mode 'r', 'w' or 'a', for reading (default),
+ writing or appending.  The file will be created if it doesn't exist
+ when opened for writing or appending; it will be truncated when
+ opened for writing.  Add a 'b' to the mode for binary files.
+ Add a '+' to the mode to allow simultaneous reading and writing.
+ If the buffering argument is given, 0 means unbuffered, 1 means line
+ buffered, and larger numbers specify the buffer size.
+
+F.close() -> None or (perhaps) an integer.  
+ Closes the file, and sets data attribute .closed to True. 
+ close() may be called more than once without error.  
+   
+F.read([size]) -> read at most size bytes, returned as a string.
+ If the size argument is negative or omitted, read until EOF is reached.
+  
+F.readline([size]) -> next line from the file, as a string.
+ Retain newline.  A non-negative size argument limits the maximum
+ number of bytes to return (an incomplete line may be returned then).
+ Returns an empty string at EOF.
+
+F.readlines([size]) -> list of strings, each a line from the file.
+ The optional size argument, if given, is an approximate bound on the
+ total number of bytes in the lines returned.
+   
+F.seek(offset[, whence]) -> None.  Moves the cursor to new file position.
+ Argument offset is a byte count.  Optional argument  whence  defaults to 0 
+ (offset from start of file, offset should be >= 0); other values are
+ 1 (move relative to current position, with positive or negative offset), 
+ and 2 (move relative to end of file, usually negative).
+ 
+F.tell() -> current cursor position, an integer (may be a long integer).
+  
+F.write(str) -> None.  Write string str to file.
+ Note that due to buffering, F.flush() or F.close() may be needed before
+ the file on disk reflects the data written.
+   
+F.writelines(sequence_of_strings) -> None.  Write the strings to the file.
+ Note that newlines are not added.  The sequence can be any iterable 
+ object producing strings. This is equivalent to calling F.write() for each
+ string.
+
+F.closed
+  True if the file is closed
+  
+F.mode
+  file mode ('r', 'U', 'w', 'a', possibly with 'b' or '+' added)
+   
+F.name
+  file name
+
+
+Set functions  (from  help(set))   for a set object S
+-------------
+
+S.add(e)    Add an element to a set.
+            This has no effect if the element is already present.
+
+S.clear()   Remove all elements from this set.
+
+S.copy()    Return a shallow copy of a set.
+
+S.difference(T)   Return the set difference  S - T
+
+S.difference_update(T)   Change S (in place) to  S - T
+
+S.discard(x)    Remove x from S if x in S (do nothing otherwise)
+
+S.intersection(T)    Return the intersection of S and T
+
+S.intersection_update(T)   Change S (in place) to  S intersect T
+
+S.issubset(T)    Report whether S is a subset of T
+
+S.issuperset(T)    Report whether S is a superset of T
+
+S.pop()    Remove and return an arbitrary set element.
+
+S.remove(x)   Remove x from S (error if x not in S)
+
+S.symmetric_difference(T)
+
+S.symmetric_difference_update(T)
+
+S.union(T)
+
+S.union_update(T)
+
+S = set(L)   Return a set, based on a list or tuple or string.
+
+(-, -=, + and += are not defined.)
+
+
